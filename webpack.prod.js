@@ -1,17 +1,17 @@
-const path = require("path")
-const config = require("./webpack.config")
-const merge = require("webpack-merge")
-const CleanWebpackPlugin = require("clean-webpack-plugin")
+const path = require('path')
+const config = require('./webpack.config')
+const merge = require('webpack-merge')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = merge(config, {
-    mode: "production",
+    mode: 'production',
     output: {
-        filename: "[name].[contentHash].bundle.js",
-        path: path.resolve(__dirname, "dist")
+        filename: '[name].[contentHash].bundle.js',
+        path: path.resolve(__dirname, 'dist')
     },
     optimization: {
         minimizer: [
@@ -39,8 +39,8 @@ module.exports = merge(config, {
                 test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader, // 3. Exract CSS into files
-                    "css-loader", // 2. Turns css into commonjs
-                    "sass-loader" // 1. Turns sass into css
+                    'css-loader', // 2. Turns css into commonjs
+                    'sass-loader' // 1. Turns sass into css
                 ]
             }
         ]
